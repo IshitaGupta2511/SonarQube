@@ -37,8 +37,8 @@ pipeline {
                 sh'''
                 sudo git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
                 sudo yum install maven -y
-                sudo mvn clean install
                 sudo cd spring-framework-petclinic
+                sudo mvn clean install
                # sudo 
                # sudo docker network create sonar-network
                 '''
