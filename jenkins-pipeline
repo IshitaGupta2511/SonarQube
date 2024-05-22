@@ -42,7 +42,7 @@ pipeline {
                 if ! git; then
                     echo "Already done"
                 fi
-                sudo cd spring-framework-petclinic
+                sudo cd /var/lib/jenkins/workspace/sonar/spring-framework-petclinic
                 sudo mvn clean install
                # sudo 
                # sudo docker network create sonar-network
