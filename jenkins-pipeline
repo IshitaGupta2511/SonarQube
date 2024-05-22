@@ -35,8 +35,13 @@ pipeline {
         stage('git-clone for testing') {
             steps {
                 sh'''
-                sudo git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
-                sudo yum install maven -y
+                git () {
+                    sudo git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+                    sudo yum install maven -y
+                }
+                if ! git; then
+                    echo "Already done"
+                fi
                 sudo cd spring-framework-petclinic
                 sudo mvn clean install
                # sudo 
