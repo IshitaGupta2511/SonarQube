@@ -2,9 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('install-docker') {
             steps {
-                echo 'Ishita-Gupta'
+                sh'''
+                sudo yum install docker
+                sudo systemctl start docker
+                sudo systemctl enable docker
+                '''
             }
         }
     }
