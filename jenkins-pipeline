@@ -37,12 +37,13 @@ pipeline {
                 sh'''
                 git () {
                     sudo git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
-                    sudo yum install maven -y
+                    
                 }
                 if ! git; then
                     echo "Already done"
                 fi
-                sudo cd /var/lib/jenkins/workspace/sonar/spring-framework-petclinic 
+                sudo cd /var/lib/jenkins/workspace/sonar/spring-framework-petclinic
+                sudo yum install maven -y 
                 sudo mvn clean package
                 sudo mvn sonar:sonar  -Dsonar.host.url=http://54.215.197.96:9000/ -Dsonar.login=sqa_da52323c9d652f241e0ef9a98069364f36502be1
                 '''
